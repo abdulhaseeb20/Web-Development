@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+
+<style>
+	.hDiv
+		{
+            width: fit-content;
+            height: fit-content;
+            background-color:white;
+            margin-left: 130px;
+        }
+		.h2
+		{
+            font-family: system-ui;
+            font-size:50px;
+            color:rgb(74, 55, 8);
+        }
+		.btn 
+		{
+			background-color: rgb(243, 243, 200); 
+  			border: none; 
+  			color: rgb(90, 60, 16); 
+  			padding: 12px 16px; 
+  			font-size: 16px; 
+		}
+		.btn:hover
+ 		{
+  			background-color: rgb(223, 223, 171);;
+		}
+
+		#win
+		{
+			color: rgb(74, 55, 8);
+        	font-size: 50px;
+       		text-align: justify;
+        	font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			margin-left: 110px;
+
+		}
+		#dead
+		{
+			color: rgb(74, 55, 8);
+        	font-size: 50px;
+       		text-align: justify;
+        	font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			margin-left: 110px;
+
+		}
+		#message
+		{
+			color: rgb(74, 55, 8);
+        	font-size: 30px;
+       		text-align: justify;
+        	font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+		}
+
+</style>
+
+
+<body>
+<div class="hDiv">
+	<h2 class="h2">PAC-MAN </h2>
+
+</div>
+
+<div>
+
+</div>
+<button id="bt1" class="btn"><i id="bti1" class="fa fa-user" ></i></button>
+<button id="bt2" class="btn"><i id="bti2" class="fa fa-circle-o" ></i></button>
+<button id="bt3" class="btn"><i id="bti3" class="fa fa-circle-o" ></i></button>
+<button id="bt4" class="btn"><i id="bti4" class="fa fa-circle-o" ></i></button>
+<button id="bt5" class="btn"><i id="bti5" class="fa fa-circle-o" ></i></button>
+<button id="bt6" class="btn"><i id="bti6" class="fa fa-circle-o" ></i></button>
+<button id="bt7" class="btn"><i id="bti7" class="fa fa-circle-o" ></i></button>
+<button id="bt8" class="btn"><i id="bti8" class="fa fa-circle-o" ></i></button>
+<button id="bt9" class="btn"><i id="bti9" class="fa fa-circle-o" ></i></button>
+<button id="bt3" class="btn"><i id="bti10" class="fa fa-circle-o" ></i></button>
+
+<br /><br />
+<button id="bt10" class="btn"><i id="bti11" class="fa fa-circle-o" ></i></button>
+<button id="bt11" class="btn"><i id="bti12" class="fa fa-circle-o" ></i></button>
+<button id="bt12" class="btn"><i id="bti13" class="fa fa-circle-o" ></i></button>
+<button id="bt13" class="btn"><i id="bti14" class="fa fa-circle-o" ></i></button>
+<button id="bt14" class="btn"><i id="bti15" class="fa fa-circle-o" ></i></button>
+<button id="bt15" class="btn"><i id="bti16" class="fa fa-circle-o" ></i></button>
+<button id="bt16" class="btn"><i id="bti17" class="fa fa-circle-o" ></i></button>
+<button id="bt17" class="btn"><i id="bti18" class="fa fa-circle-o" ></i></button>
+<button id="bt18" class="btn"><i id="bti19" class="fa fa-circle-o" ></i></button>
+<button id="bt3" class="btn"><i id="bti20" class="fa fa-circle-o" ></i></button>
+
+<br /><br />
+<button id="bt19" class="btn"><i id="bti21" class="fa fa-circle-o" ></i></button>
+<button id="bt20" class="btn"><i id="bti22" class="fa fa-circle-o" ></i></button>
+<button id="bt21" class="btn"><i id="bti23" class="fa fa-circle-o" ></i></button>
+<button id="bt22" class="btn"><i id="bti24" class="fa fa-circle-o" ></i></button>
+<button id="bt23" class="btn"><i id="bti25" class="fa fa-circle-o" ></i></button>
+<button id="bt24" class="btn"><i id="bti26" class="fa fa-circle-o" ></i></button>
+<button id="bt25" class="btn"><i id="bti27" class="fa fa-circle-o" ></i></button>
+<button id="bt26" class="btn"><i id="bti28" class="fa fa-circle-o" ></i></button>
+<button id="bt27" class="btn"><i id="bti29" class="fa fa-circle-o" ></i></button>
+<button id="bt3" class="btn"><i id="bti30" class="fa fa-circle-o" ></i></button>
+
+<br /><br />
+<button id="bt28" class="btn"><i id="bti31" class="fa fa-circle-o" ></i></button>
+<button id="bt29" class="btn"><i id="bti32" class="fa fa-circle-o" ></i></button>
+<button id="bt30" class="btn"><i id="bti33" class="fa fa-circle-o" ></i></button>
+<button id="bt31" class="btn"><i id="bti34" class="fa fa-circle-o" ></i></button>
+<button id="bt32" class="btn"><i id="bti35" class="fa fa-circle-o" ></i></button>
+<button id="bt33" class="btn"><i id="bti36" class="fa fa-circle-o" ></i></button>
+<button id="bt34" class="btn"><i id="bti37" class="fa fa-circle-o" ></i></button>
+<button id="bt35" class="btn"><i id="bti38" class="fa fa-circle-o" ></i></button>
+<button id="bt36" class="btn"><i id="bti39" class="fa fa-circle-o" ></i></button>
+<button id="bt3" class="btn"><i id="bti40" class="fa fa-circle-o" ></i></button>
+
+<br/> <br/>
+<button id="bt37" class="btn"><i id="bti41" class="fa fa-circle-o" ></i></button>
+<button id="bt38" class="btn"><i id="bti42" class="fa fa-circle-o" ></i></button>
+<button id="bt39" class="btn"><i id="bti43" class="fa fa-circle-o" ></i></button>
+<button id="bt40" class="btn"><i id="bti44" class="fa fa-circle-o" ></i></button>
+<button id="bt41" class="btn"><i id="bti45" class="fa fa-circle-o" ></i></button>
+<button id="bt42" class="btn"><i id="bti46" class="fa fa-circle-o" ></i></button>
+<button id="bt43" class="btn"><i id="bti47" class="fa fa-circle-o" ></i></button>
+<button id="bt44" class="btn"><i id="bti48" class="fa fa-circle-o" ></i></button>
+<button id="bt45" class="btn"><i id="bti49" class="fa fa-circle-o" ></i></button>
+<button id="bt3" class="btn"><i id="bti50" class="fa fa-circle-o" ></i></button>
+<br/><br/>
+
+<button id="bt46" class="btn"><i id="bti51" class="fa fa-circle-o" ></i></button>
+<button id="bt47" class="btn"><i id="bti52" class="fa fa-circle-o" ></i></button>
+<button id="bt48" class="btn"><i id="bti53" class="fa fa-circle-o" ></i></button>
+<button id="bt49" class="btn"><i id="bti54" class="fa fa-circle-o" ></i></button>
+<button id="bt50" class="btn"><i id="bti55" class="fa fa-circle-o" ></i></button>
+<button id="bt51" class="btn"><i id="bti56" class="fa fa-circle-o" ></i></button>
+<button id="bt52" class="btn"><i id="bti57" class="fa fa-circle-o" ></i></button>
+<button id="bt53" class="btn"><i id="bti58" class="fa fa-circle-o" ></i></button>
+<button id="bt54" class="btn"><i id="bti59" class="fa fa-circle-o" ></i></button>
+<button id="bt3" class="btn"><i id="bti60" class="fa fa-circle-o" ></i></button>
+<br/><br/>
+
+<button id="bt55" class="btn"><i id="bti61" class="fa fa-circle-o" ></i></button>
+<button id="bt56" class="btn"><i id="bti62" class="fa fa-circle-o" ></i></button>
+<button id="bt57" class="btn"><i id="bti63" class="fa fa-circle-o" ></i></button>
+<button id="bt58" class="btn"><i id="bti64" class="fa fa-circle-o" ></i></button>
+<button id="bt59" class="btn"><i id="bti65" class="fa fa-circle-o" ></i></button>
+<button id="bt60" class="btn"><i id="bti66" class="fa fa-circle-o" ></i></button>
+<button id="bt61" class="btn"><i id="bti67" class="fa fa-circle-o" ></i></button>
+<button id="bt62" class="btn"><i id="bti68" class="fa fa-circle-o" ></i></button>
+<button id="bt63" class="btn"><i id="bti69" class="fa fa-circle-o" ></i></button>
+<button id="bt3" class="btn"><i id="bti70" class="fa fa-circle-o" ></i></button>
+<br/><br/>
+
+<button id="bt64" class="btn"><i id="bti71" class="fa fa-circle-o" ></i></button>
+<button id="bt65" class="btn"><i id="bti72" class="fa fa-circle-o" ></i></button>
+<button id="bt66" class="btn"><i id="bti73" class="fa fa-circle-o" ></i></button>
+<button id="bt67" class="btn"><i id="bti74" class="fa fa-circle-o" ></i></button>
+<button id="bt68" class="btn"><i id="bti75" class="fa fa-circle-o" ></i></button>
+<button id="bt69" class="btn"><i id="bti76" class="fa fa-circle-o" ></i></button>
+<button id="bt70" class="btn"><i id="bti77" class="fa fa-circle-o" ></i></button>
+<button id="bt71" class="btn"><i id="bti78" class="fa fa-circle-o" ></i></button>
+<button id="bt72" class="btn"><i id="bti79" class="fa fa-circle-o" ></i></button>
+<button id="bt3" class="btn"><i id="bti80" class="fa fa-circle-o" ></i></button>
+<br/><br/>
+
+<button id="bt73" class="btn"><i id="bti81" class="fa fa-circle-o" ></i></button>
+<button id="bt74" class="btn"><i id="bti82" class="fa fa-circle-o" ></i></button>
+<button id="bt75" class="btn"><i id="bti83" class="fa fa-circle-o" ></i></button>
+<button id="bt76" class="btn"><i id="bti84" class="fa fa-circle-o" ></i></button>
+<button id="bt77" class="btn"><i id="bti85" class="fa fa-circle-o" ></i></button>
+<button id="bt78" class="btn"><i id="bti86" class="fa fa-circle-o" ></i></button>
+<button id="bt79" class="btn"><i id="bti87" class="fa fa-circle-o" ></i></button>
+<button id="bt80" class="btn"><i id="bti88" class="fa fa-circle-o" ></i></button>
+<button id="bt81" class="btn"><i id="bti89" class="fa fa-circle-o" ></i></button>
+<button id="bt3" class="btn"><i id="bti90" class="fa fa-circle-o" ></i></button>
+<br/><br/>
+
+<button id="bt82" class="btn"><i id="bti91" class="fa fa-circle-o" ></i></button>
+<button id="bt83" class="btn"><i id="bti92" class="fa fa-circle-o" ></i></button>
+<button id="bt84" class="btn"><i id="bti93" class="fa fa-circle-o" ></i></button>
+<button id="bt85" class="btn"><i id="bti94" class="fa fa-circle-o" ></i></button>
+<button id="bt86" class="btn"><i id="bti95" class="fa fa-circle-o" ></i></button>
+<button id="bt87" class="btn"><i id="bti96" class="fa fa-circle-o" ></i></button>
+<button id="bt88" class="btn"><i id="bti97" class="fa fa-circle-o" ></i></button>
+<button id="bt89" class="btn"><i id="bti98" class="fa fa-circle-o" ></i></button>
+<button id="bt90" class="btn"><i id="bti99" class="fa fa-circle-o" ></i></button>
+<button id="bt3" class="btn"><i id="bti100" class="fa fa-circle-o" ></i></button>
+
+<p id="win"></p>
+<p id="dead"></p>
+<p id="message"></p>
+
+
+
+<script>
+//Random number generating
+var randomhome = Math.floor((Math.random() * 99) + 2);
+var homeid = "bti"+randomhome;
+document.getElementById(homeid).className = "fa fa-home";
+
+const enemy = [];
+const enemyid = [];
+for(var i=1; i<=5; i++)
+{
+	enemy[i] = Math.floor((Math.random() * 99 + 2));
+	enemyid[i] = "bti"+enemy[i];
+	document.getElementById(enemyid[i]).className = "fa fa-fire";
+}
+
+const powers = [];
+const powersid =[];
+for(var i=1; i<10; i++)
+{
+	powers[i] = Math.floor((Math.random() * 99 +2));
+	powersid[i] = "bti"+powers[i];
+	document.getElementById(powersid[i]).className = "fa fa-star-o";
+}
+ 
+var int = 0;
+var count = 0;
+
+document.onkeyup = function(e) 
+{
+// Player current location
+for(var i=1; i<=100; i++)
+	{
+		var classname = document.getElementById("bti"+i).className; 
+		if(classname.includes("fa-user"))
+		{
+			var currhome = "bti"+i;
+			int = i;
+		}
+	}
+
+
+if(e.keyCode == 39 && count == 0)
+{
+	var index = int+1;
+	if(index > 100)
+	{
+		alert("You cannot move Further!")
+	}
+	else
+	{
+		var latesthome = "bti"+(index);
+	document.getElementById(currhome).className = "fa fa-circle-o";
+	document.getElementById(latesthome).className = "fa fa-user";
+	}
+}
+
+
+if(e.keyCode == 37 && count == 0)
+{
+	var index = int-1;
+	if(index < 1)
+	{
+		alert("You cannot move Further!")
+	}
+	else
+	{
+		var latesthome = "bti"+(index);
+	document.getElementById(currhome).className = "fa fa-circle-o";
+	document.getElementById(latesthome).className = "fa fa-user";
+	}
+}
+
+if(e.keyCode == 38 && count == 0)
+{
+	var index = int-10;
+	if(index < 1)
+	{
+		alert("You cannot move Further!")
+	}
+	else
+	{
+		var latesthome = "bti"+(index);
+		document.getElementById(currhome).className = "fa fa-circle-o";
+		document.getElementById(latesthome).className = "fa fa-user";
+	}
+}
+
+if(e.keyCode == 40 && count == 0)
+{
+	var index = int+10;
+	if(index > 100)
+	{
+		alert("You cannot move Further!")
+	}
+	else
+	{
+		var latesthome = "bti"+(index);
+		document.getElementById(currhome).className = "fa fa-circle-o";
+		document.getElementById(latesthome).className = "fa fa-user";
+	}
+}
+
+
+// Win Condition
+if(latesthome == homeid)
+{
+	document.getElementById("win").innerText = "You WON!!!";
+	count = 1;
+}
+
+//Powers Condition
+for(var i=1; i<10; i++)
+{
+	if(latesthome == powersid[i])
+	{
+		document.getElementById("message").innerText = "Congratulations! You ATE a POWER!!!";
+		var sec = 3;
+    	var timer = setInterval(function(){
+        //document.getElementById('message').innerHTML='00:'+sec;
+        sec--;
+        if (sec < 0) {
+			document.getElementById("message").style.display = "none";
+            clearInterval(timer);
+        }
+    }, 1000);
+	document.getElementById("message").style.display = "block";
+	}
+	
+}
+
+//Death Condition
+for(var i=1; i<=5; i++)
+{
+	if(latesthome == enemyid[i])
+	{
+		document.getElementById("dead").innerText = "You DIED!!! Game Ended..";
+		count = 1;
+	}
+	
+}
+
+
+}
+</script>
+</body>
+</html>
