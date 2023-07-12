@@ -1,0 +1,403 @@
+<html>
+<head>
+<style>
+
+
+#typetext{
+display:none;
+}
+
+.img{
+width: 4px;
+height: 4px;
+cursor: pointer;
+}
+
+.escbutton{
+color:black;
+background-color: white;
+text-align: centre;
+width: 50.40px;
+height: 35px;
+border-radius: 4px;
+font-size: 10px;
+text-align:centre;
+margin-bottom: 10px;
+}
+.escbutton:hover {background-color: #7393B3}
+
+.button1{
+color:black;
+background-color: white;
+text-align: centre;
+width: 50.40px;
+height: 35px;
+border-radius: 4px;
+font-size: 10px;
+text-align:right;
+}
+.button1:hover {background-color: #7393B3}
+
+.button2{
+color:black;
+background-color: white;
+text-align: centre;
+width: 49px;
+height: 49px;
+border-radius: 4px;
+}
+.button2:hover {background-color: #7393B3}
+
+
+.button3{
+color:black;
+background-color: white;
+text-align: centre;
+width: 70px;
+height: 47px;
+border-radius: 4px;
+}
+.button3:hover {background-color: #7393B3}
+
+.button4{
+color:black;
+background-color: white;
+text-align: centre;
+width: 40px;
+height: 47px;
+border-radius: 4px;
+}
+.button4:hover {background-color: #7393B3}
+
+.capsbutton{
+color:black;
+background-color: white;
+text-align: centre;
+width: 80px;
+height: 47px;
+border-radius: 4px;
+}
+.capsbutton:hover {background-color: #7393B3}
+
+.enterbutton{
+color:black;
+background-color: white;
+text-align: centre;
+width: 90px;
+height: 47px;
+border-radius: 4px;
+}
+.enterbutton:hover {background-color: #7393B3}
+
+.shiftbutton{
+color:black;
+background-color: white;
+text-align: centre;
+width: 112px;
+height: 47px;
+cursor: pointer;
+border-radius: 4px;
+}
+.shiftbutton:hover {background-color: #7393B3}
+
+.spacebutton{
+color:black;
+background-color: white;
+text-align: centre;
+width: 244px;
+height: 47px;
+border-radius: 4px;
+}
+.spacebutton:hover {background-color: #7393B3}
+
+.upbutton{
+color:black;
+background-color: white;
+text-align: centre;
+width: 40px;
+height: 25px;
+border-radius: 4px;
+margin-left: 55px;
+}
+.upbutton:hover {background-color: #7393B3}
+
+#downbutton{
+color:black;
+background-color: white;
+text-align: centre;
+width: 40px;
+height: 25px;
+border-radius: 4px;
+margin-left: 6px;
+}
+.downbutton:hover {background-color: #7393B3}
+
+.myDiv{
+width: 760px;
+height: 40px;
+background-color: black;
+text-align: centre;
+margin: 5px;
+margin-right: 100px;
+border-radius: 5px;
+}
+
+.myDiv2{
+width: 760px;
+height: 52px;
+background-color: black;
+text-align: centre;
+margin: 5px;
+display: inline-block;
+border-radius: 5px;
+}
+
+.myDiv3{
+width: 25%;
+height: 100%;
+background-color: black;
+text-align: centre;
+display: inline-block
+}
+
+.myDiv4{
+width: 30%;
+height: 100%;
+background-color: red;
+text-align: centre;
+margin-left:611px;
+border-radius: 5px;
+display: inline-block
+}
+
+.myDiv7{
+width: 760px;
+height: 52px;
+background-color: black;
+text-align: centre;
+margin: 5px;
+display: inline-block;
+border-radius: 5px;
+}
+
+#leftbox {
+
+                float:left; 
+                background:black;
+                width:80%;
+                border-radius: 3px;
+                height:100%;
+            }
+
+            #middlebox{
+                float:left; 
+                background:Green;
+                width:20%;
+                border-radius: 3px;
+                height:100%;
+            }
+
+            #downbox{
+                float:right;
+                background:black;
+                width:100%;
+                border-radius: 3px;
+                height:50%;
+            }
+			
+			#upbox{
+			float:right;
+                background:black;
+                width:100%;
+                border-radius: 3px;
+                height:50%;
+			}
+
+      #textbox{
+        width: 300px;
+        border-radius: 3px;
+        text-align: justify;
+        margin-top: 10px;
+        margin-left: 200px;
+        margin-bottom: 20px;
+        font-size: 15px;
+        background: beige;
+      }
+
+</style>
+
+
+</head>
+
+
+<body >
+<h3> CSS Flexbox Apple Keyboard by Olex </h3>
+
+<div >
+<textarea class="showtext" id="textbox" placeholder="Enter Text" > </textarea>
+
+</div>
+
+<div class= "myDiv">
+<button class="escbutton" id="esc" onclick="displayText(esc);">Esc </button>
+<button class="button1" id="f1" onclick="displayText(f1);">   
+<img src="brightness.png" style="width: 50%">F1
+</button>
+<button class="button1" id="f2" onclick="displayText(f2);">
+<img src="projector-screen.png" style="width: 50%">F2
+</button>
+<button class="button1" id="f3" onclick="displayText(f3);">
+<img src="question.png" style="width: 50%">F3
+</button>
+<button class="button1" id="f4" onclick="displayText(f4);">
+<img src="night-mode.png" style="width: 50%">F4
+</button>
+<button class="button1" id="f5" onclick="displayText(f5);">
+<img src="display-frame.png" style="width: 50%">F5
+</button>
+<button class="button1" id="f6" onclick="displayText(f6);">
+<img src="wifi.png" style="width: 50%">F6
+</button>
+<button class="button1" id="f7" onclick="displayText(f7);">
+<img src="previous.png" style="width: 50%">F7
+</button>
+<button class="button1" id="f8" onclick="displayText(f8);">
+<img src="next.png" style="width: 50%">F8
+</button>
+<button class="button1"id="f9" onclick="displayText(f9);">
+<img src="fast-forward.png" style="width: 50%">F9
+</button>
+<button class="button1" id="f10" onclick="displayText(f10);">
+<img src="mute.png" style="width: 50%">F10
+</button>
+<button class="button1" id="f11" onclick="displayText(f11);">
+<img src="volume-down.png" style="width: 50%">F11
+</button>
+<button class="button1" id="f12" onclick="displayText(f12);">
+<img src="volume-up.png" style="width: 50%">F12
+</button>
+<button class="button1" id="" onclick="displayText(a);">
+<img src="arrow-up.png" style="width: 50%">
+</button>
+</div>
+
+<div class= "myDiv2">
+<button class="button2" id="~" onclick="displayText(`);">~ </button>
+<button class="button2" id="1" onclick="displayText(1);">1</button>
+<button class="button2" id="2" onclick="displayText(2);">2 </button>
+<button class="button2" id="3" onclick="displayText(3);">3 </button>
+<button class="button2" id="4" onclick="displayText(4);">4 </button>
+<button class="button2" id="5" onclick="displayText(5);">5 </button>
+<button class="button2" id="6" onclick="displayText(6);">6 </button>
+<button class="button2" id="7" onclick="displayText(7);">7 </button>
+<button class="button2" id="8" onclick="displayText(8);">8 </button>
+<button class="button2" id="9" onclick="displayText(9);">9 </button>
+<button class="button2" id="0" onclick="displayText(0);">0 </button>
+<button class="button2" id="-" onclick="displayText(-);">- </button>
+<button class="button2" id="+" onclick="displayText(+);">+ </button>
+<button class= "button3">delete </button>
+</div>
+
+<div class= "myDiv2">
+<button class= "button3">tab </button>
+<button class="button2" onkeydown="changeColor()">Q </button>
+<button class="button2" id="w" onclick="displayText(w);">W </button>
+<button class="button2" id="e" onclick="displayText(e);">E </button>
+<button class="button2"id="r" onclick="displayText(r);">R </button>
+<button class="button2" id="t" onclick="displayText(t);">T </button>
+<button class="button2"id="y" onclick="displayText(y);">Y </button>
+<button class="button2" id="u" onclick="displayText(u);">U </button>
+<button class="button2" id="i" onclick="displayText(i);">I </button>
+<button class="button2" id="o" onclick="displayText(o);">O </button>
+<button class="button2"id="p" onclick="displayText(p);">P </button>
+<button class="button2" id="[" onclick="displayText(.);">[ </button>
+<button class="button2"id="]" onclick="displayText(.);">] </button>
+<button class="button2" id="\" onclick="displayText(\);">\ </button>
+</div>
+
+
+<div class= "myDiv2">
+<button class= "capsbutton" id="caps" onclick="displayText(caps);">caps </button>
+<button class="button2" id="a" onclick="displayText(a);">A </button>
+<button class="button2" id="s" onclick="displayText(s);">S </button>
+<button class="button2" id="d" onclick="displayText(d);">D </button>
+<button class="button2" id="f" onclick="displayText(f);">F </button>
+<button class="button2" id="g" onclick="displayText(g);">G </button>
+<button class="button2" id="h" onclick="displayText(h);">H </button>
+<button class="button2" id="j" onclick="displayText(j);">J </button>
+<button class="button2" id="k" onclick="displayText(k);">K </button>
+<button class="button2" id="l" onclick="displayText(l);">L </button>
+<button class="button2" id=";" onclick="displayText(/);">; </button>
+<button class="button2" id="'" onclick="displayText();">' </button>
+<button class="enterbutton" id="enter" onclick="displayText(enter);">enter </button>
+</div>
+
+
+<div class= "myDiv2">
+<button class= "shiftbutton" id="shift" onclick="displayText(shift);">shift </button>
+<button class="button2" id="z" onclick="displayText(z);">Z </button>
+<button class="button2" id="x" onclick="displayText(x);">X </button>
+<button class="button2" id="c" onclick="displayText(c);">C </button>
+<button class="button2"id="v" onclick="displayText(v);">V </button>
+<button class="button2" id="b" onclick="displayText(b);">B </button>
+<button class="button2" id="n" onclick="displayText(n);">N </button>
+<button class="button2" id="m" onclick="displayText(m);">M </button>
+<button class="button2" id="," onclick="displayText(,);">, </button>
+<button class="button2" id="." onclick="displayText(.);">. </button>
+<button class="button2" id="/" onclick="displayText(/);">/ </button>
+<button class="shiftbutton" id="shift" onclick="displayText(shift);">shift </button>
+</div>
+
+<div class= "myDiv7">
+<div id= "leftbox">
+<button class="button2" id="fn" onclick="displayText(fn);">fn </button>
+<button class="button2" id="ctrl" onclick="displayText(ctrl);">ctrl </button>
+<button class="button2" id="opt" onclick="displayText(opt);">opt </button>
+<button class= "button3" id="cmd" onclick="displayText(cmd);">cmd </button>
+<button class="spacebutton" id="spc" onclick="displayText(spc);"> spacebar</button>
+<button class= "button3" id="cmd" onclick="displayText(cmd);">cmd </button>
+<button class="button2" id="opy" onclick="displayText(opt);">opt </button>
+
+</div>
+
+<div id= "middlebox">
+
+<div id= "downbox">
+<button id="upbutton" style="margin-left: 60px;">up </button>
+</div>
+<div id= "upbox">
+<button id="downbutton">left </button>
+<button id="downbutton">down </button>
+<button id="downbutton">right </button>
+</div>
+</div>
+</div>
+</body>
+
+<script>
+
+document.addEventListener('keydown', (event) => {
+  var name = event.key;
+  var code = event.code;
+  document.getElementById(name).style.background="red";
+  // Alert the key name and key code on keydown
+}, false);
+
+document.addEventListener('keyup', (event) => {
+  var name = event.key;
+  var code = event.code;
+  document.getElementById(name).style.background="white";
+}, false);
+
+
+var var1 = "";
+function displayText(txt)
+{
+var1 = var1+txt.innerHTML;
+document.getElementById("textbox").value = var1;
+}
+
+
+</script>
+
+</html>
