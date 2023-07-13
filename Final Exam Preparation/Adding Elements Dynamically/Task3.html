@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Task 03</title>
+</head>
+<style>
+
+    .form {
+        margin-left: 100px;
+    }
+
+    .input {
+        width: 50%;
+        padding: 9px 20px;
+        align-items: center;
+        border-radius: 2px;
+    }
+
+    .label {
+        cursor: default;
+    }
+
+</style>
+
+<body>
+
+    <body style="background-color: beige">
+        <body  class="form">
+            <input class="input" id="bill" type="number" placeholder="Total Bill" ><br></br>
+            <input class="input" id="disc" type="number" placeholder="Total Discount" ><br></br>
+            <input class="input" id="tax" type="number" placeholder="Sales Tax" > <br></br>
+            <input class="input" id="received" type="number" placeholder="Total Money"> <br></br>
+            <br><br>
+            <label>Grand Total: </label>
+            <h1 id="grandt"></h1>
+            <label>Change: </label>
+            <h1 id="change"></h1>
+
+
+     <script>
+        var inpt1 = document.getElementById("bill");
+        var inpt2 = document.getElementById("disc");
+        var inpt3 = document.getElementById("tax");
+        var inpt4 = document.getElementById("received");
+
+        inpt1.addEventListener("change", onChange);
+        inpt2.addEventListener("change", onChange);
+        inpt3.addEventListener("change", onChange);
+        inpt4.addEventListener("change", onChange);
+
+        var totalbill = 0; var totaldisc = 0; var grandtotal = 0;
+        var bill = 0;
+        var discount = 0;
+        var tax = 0 ;
+        var received = 0
+        var change = 0;
+        
+
+        function onChange()
+        {
+            bill = document.getElementById("bill").value;
+            discount = document.getElementById("disc").value;
+            tax = document.getElementById("tax").value;
+            received = document.getElementById("received").value;
+            
+            totalbill = bill - (discount/100)*bill;
+            var tax1 = 0;
+            tax1  = (tax/100) * totalbill;
+            grandtotal = totalbill + tax1;
+            document.getElementById("grandt").innerHTML = grandtotal;
+            change = received - grandtotal;
+            document.getElementById("change").innerHTML = change;
+
+        }
+
+     </script>       
+
+
+    </body>
+
+</html>

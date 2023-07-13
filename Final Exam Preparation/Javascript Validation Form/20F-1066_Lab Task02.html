@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lab Task 02</title>
+        <style>
+            input[type=text], select {
+                width: 350px;
+				height: 35px;
+                padding: 12px 20px;
+                margin: 8px 0;
+                display: inline-block;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+            }
+            input[type=password], select {
+                width: 350px;
+				height: 35px;
+                padding: 12px 20px;
+                margin: 8px 0;
+                display: inline-block;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+            }
+            input[type=submit] {
+                width: 150px;
+				height: 35px;
+                background-color: red;
+                color: white;
+				margin-left: 80px;
+                padding: 14px 20px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+            input[type=submit]:hover {
+                background-color: #0d09d6;
+            }
+            div {
+                border-radius: 5px;
+                background-color: #f2f2f2;
+                padding: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <h3>Web Lab Task 02</h3>
+            <form name="form" onsubmit="return getFormData()" action="">
+          
+                <input type="text" id="name" placeholder="Your name" required><br></br>
+               
+                <input type="text" id="age" placeholder="Your age" required><br></br>
+               
+                <input type="text" id="cnic" placeholder="Your CNIC" required><br></br>
+                
+                <input type="text" id="email" placeholder="Your email" required><br></br>
+               
+                <input type="password" id="password" placeholder="Your password" required><br></br>
+                
+                <input type="password" id="confirmpassword" placeholder="Confirm password" required><br></br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        <script>
+             function checkCNIC(){
+        var cnic = document.getElementById('cnic').value;
+        if(cnic.length  != 15)
+        {
+            alert('CNIC Length does not match');
+            return false;
+        }
+        if(cnic[5] != '-' || cnic[13] != '-')
+        {
+            alert('CNIC '-' is not rightly placed');
+            return false;
+        }
+        var numbers = "^[0-9]*$";
+
+        for(var i=0;i<cnic.length; i++){
+            if(i == 5 || i==13)
+                continue;
+            if(!cnic[i].match(numbers))
+            {
+                alert('CNIC should contain only numbers');
+                return flase;
+            }
+        }
+        return true;
+    }
+            function getFormData() {
+                var name = document.forms["form"]["name"].value;
+                var age = document.forms["form"]["age"].value;
+                var password = document.forms["form"]["password"].value;
+                var confirmpassword = document.forms["form"]["confirmpassword"].value;
+                if(!/^[a-zA-Z]*$/g.test(name)){
+                    alert("Name must contain only alphabets!");
+                    return false;
+                }
+                if (!/^[0-9]*$/g.test(age)) {
+                    alert("Age must contain only numbers!");
+                    return false;
+                }
+                if (age < 0 || age >100) {
+                    alert("Age must be greater than 0 and less than 100.");
+                    return false;
+                }
+                if (password != confirmpassword) {
+                    alert("Passwords do not match!");
+                    return false;
+                }
+                checkCNIC();
+
+            }
+           
+        </script>
+    </body>
+</html>

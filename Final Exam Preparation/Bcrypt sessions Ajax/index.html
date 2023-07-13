@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html>
+
+
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title> Form </title>
+	<!-- Tell the browser to be responsive to screen width -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+
+	<!-- Google Font: Source Sans Pro -->
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+	<style>
+
+  .container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+  }
+  label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="password"]:focus,
+  textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  input[type="submit"]:hover {
+    background-color: #0069d9;
+  }
+  #pac-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+  #map {
+    height: 300px;
+    margin-bottom: 10px;
+  }
+  #error-msg {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  .btndiv{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+  }
+  .btn{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 50%;
+	height: 2rem;
+	background-color: green;
+font-size: large;
+font-weight:bold ;
+cursor: pointer;
+
+  }
+  #switch-to-sign-in {
+		  display: block;
+		  margin-top: 20px;
+		  background-color: #007bff;
+		  color: white;
+		  padding: 10px 20px;
+		  border: none;
+		  border-radius: 4px;
+		  cursor: pointer;
+		}
+		#sign-up-form {
+		  display: none;
+		}
+
+		/* Style the button to switch to the sign-up form */
+		#switch-to-sign-up {
+		  display: block;
+		  margin-top: 20px;
+		  background-color: #007bff;
+		  color: white;
+		  padding: 10px 20px;
+		  border: none;
+		  border-radius: 4px;
+		  cursor: pointer;
+		}
+		form {
+		  max-width: 400px;
+		  margin: 0 auto;
+		  padding: 20px;
+		  border: 1px solid #ccc;
+		  border-radius: 5px;
+		  background-color: #f2f2f2;
+		}
+
+		label {
+		  display: block;
+		  margin-bottom: 8px;
+		}
+
+		input[type="text"],
+		input[type="email"],
+		input[type="password"] {
+		  width: 100%;
+		  padding: 12px;
+		  border: 1px solid #ccc;
+		  border-radius: 4px;
+		  box-sizing: border-box;
+		  margin-bottom: 16px;
+		}
+
+		button[type="submit"] {
+		  background-color: #4CAF50;
+		  color: white;
+		  padding: 12px 20px;
+		  border: none;
+		  border-radius: 4px;
+		  cursor: pointer;
+		}
+
+		button[type="submit"]:hover {
+		  background-color: #45a049;
+		}
+
+		</style>
+</head>
+
+<body class="hold-transition register-page">
+	<div class="container" id="sign-up-form">
+		<h1>Registeration Form</h1>
+		<label for="name">Full Name:</label>
+		<input type="text" id="name" name="name" placeholder="Enter Your Name">
+	  
+		<label for="email">Email:</label>
+		<input type="email" id="email" name="email" placeholder="Enter Your Email">
+	  
+		<label for="phone">Phone:</label>
+		<input type="text" id="phone" name="phone" placeholder="Enter Your Phone Number">
+	  
+		<label for="password">Password:</label>
+		<input type="password" id="password" name="password" placeholder="Enter Your Password">
+	  
+		<label for="address">Address:</label>
+		<textarea id="address" name="address" placeholder="Enter Your Address"></textarea>
+	  
+		<label for="zip">Zip code:</label> 
+		<input type="text" id="zip" name="zip" placeholder="Zip Code:">
+	  
+		<input type="hidden" id="latitude" name="latitude">
+		<input type="hidden" id="longitude" name="longitude">
+		<input id="pac-input" class="form-control" placeholder="Search your location on Map (Pointer is also movable)">
+	  
+		<label for="map">Select Location on Map:</label>
+		<div id="map"></div>
+		<div class="btndiv">
+
+			<button type="button" class="btn" onclick="register();">Register</button>
+			<p>if you have already account then just sign In</p>
+			<button id="switch-to-sign-in">Sign In</button>
+		</div>
+
+<label style="color:red;font-size:12px; display: none;" id="pacinputwarning">This is a Required Field.</label>
+
+  <div id="error-msg"></div>
+</div>
+
+	<!-- <div class="row">
+
+
+
+		<div id="map" style="margin-bottom: 10px"></div>
+
+
+	</div> -->
+
+
+
+	<div class="row">
+		<input type="hidden" id="lattitude" />
+		<input type="hidden" id="longitude" />
+	</div>
+
+	<br />
+
+
+	</div>
+
+
+	<br>
+	<!-- END CAPTCHA -->
+
+
+
+	<br />
+
+	</div>
+	<!-- /.form-box -->
+	</div><!-- /.card -->
+	</div>
+	<div style="display: flex; justify-content: center;">
+
+		<h1>Sign In Form</h1>
+	</div>
+	<form id="sign-in-form" >
+		<label for="email">Email:</label>
+		<input type="email" id="email1" name="email" required>
+  
+		<label for="password">Password:</label>
+		<input type="password" id="password2" name="password" required>
+  
+		<button type="submit" onclick="signin()">Sign In</button>
+		<p>if you do not have account then firstly register yourself</p>
+		<button id="switch-to-sign-up">Register</button>
+	  </form>
+	<!-- /.register-box -->
+
+	<!-- jQuery -->
+	<script type="text/javascript" src="jquery-3.6.0.min.js"></script>
+
+
+
+
+	<!-- AdminLTE for demo purposes -->
+
+	<script>
+
+
+
+
+		function validate(evt) {
+			var theEvent = evt || window.event;
+
+			// Handle paste
+			if (theEvent.type === 'paste') {
+				key = event.clipboardData.getData('number');
+			} else {
+				// Handle key press
+				var key = theEvent.keyCode || theEvent.which;
+				key = String.fromCharCode(key);
+			}
+			var regex = /[0-9]/;
+			if (!regex.test(key)) {
+				theEvent.returnValue = false;
+				if (theEvent.preventDefault) theEvent.preventDefault();
+			}
+		}
+
+
+		var map;
+
+		function initAutocomplete() {
+
+			var map = new google.maps.Map(document.getElementById('map'), {
+				center: {
+					lat: 30.3753,
+					lng: 69.3451
+				},
+				zoom: 5
+			});
+
+
+			var options = {
+				componentRestrictions: { country: "pk" }
+			};
+
+			var input = (document.getElementById('pac-input'));
+			var autocomplete = new google.maps.places.Autocomplete(input, options);
+
+			autocomplete.bindTo('bounds', map);
+
+			var infowindow = new google.maps.InfoWindow();
+
+			var marker = new google.maps.Marker({
+				draggable: true,
+				map: map
+
+			});
+
+
+			autocomplete.addListener('place_changed', function () {
+
+				var place = autocomplete.getPlace();
+				var lattitude = place.geometry.location.lat();
+				var longitude = place.geometry.location.lng();
+
+				google.maps.event.addListener(marker, 'dragend', function (event) {
+					document.getElementById("lattitude").value = this.getPosition().lat();
+					document.getElementById("longitude").value = this.getPosition().lng();
+
+					//Marker Location Changed
+
+					document.getElementById("lattitude").value = this.getPosition().lat();
+
+
+					document.getElementById("longitude").value = this.getPosition().lng();
+
+
+				});
+
+				
+				document.getElementById("lattitude").value = lattitude;
+				document.getElementById("longitude").value = longitude;
+
+
+				
+
+				infowindow.close();
+				marker.setVisible(false);
+				var place = autocomplete.getPlace();
+				if (!place.geometry) {
+					window.alert("Autocomplete's returned place contains no geometry");
+					return;
+				}
+
+				
+				if (place.geometry.viewport) {
+					map.fitBounds(place.geometry.viewport);
+				} else {
+					map.setCenter(place.geometry.location);
+					map.setZoom(17);
+					
+				}
+
+				marker.setPosition(place.geometry.location);
+				marker.setVisible(true);
+
+				var address = '';
+				if (place.address_components) {
+					address = [(place.address_components[0] && place.address_components[0].short_name || ''), (place.address_components[1] && place.address_components[1].short_name || ''), (place.address_components[2] && place.address_components[2].short_name || '')].join(' ');
+				}
+
+				infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
+				infowindow.open(map, marker);
+
+
+
+				
+
+
+
+			});
+
+
+
+		}
+
+
+
+		
+
+
+
+	</script>
+
+
+	<script
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9irjntPHdEJf024h7H_XKpS11OeW1Nh8&libraries=places&callback=initAutocomplete"
+		async defer></script>
+		<script>
+			const signInForm = document.getElementById("sign-in-form");
+	const signUpForm = document.getElementById("sign-up-form");
+	const switchToSignUpBtn = document.getElementById("switch-to-sign-up");
+	const switchToSignInBtn = document.getElementById("switch-to-sign-in");
+
+	// Show the sign-up form when the "Register" button is clicked
+	switchToSignUpBtn.addEventListener("click", function(event) {
+	  event.preventDefault();
+	  signInForm.style.display = "none";
+	  signUpForm.style.display = "block";
+	});
+
+	// Show the sign-in form when the "Sign In" button is clicked
+	switchToSignInBtn.addEventListener("click", function(event) {
+        
+    event.preventDefault();
+	  signInForm.style.display = "block";
+	  signUpForm.style.display = "none";
+ 
+	});
+			function register() {
+				var name = $("#name").val();
+				var email = $("#email").val();
+				var phone = $("#phone").val();
+				var password = $("#password").val();
+				var address = $("#address").val();
+				var zip = $("#zip").val();
+				var location = $("#pac-input").val();
+				if(name =='')
+				{
+					alert("Please fill the Name");
+				}
+else if(email=='')
+{
+	alert("Please fill the Email");
+}
+else if(password=='')
+{
+	alert("Please fill the Password");
+}
+else
+{
+
+	var data = {
+		name: name,
+		email: email,
+		phone: phone,
+		password: password,
+		address: address,
+		zip: zip,
+		location: location,
+	};
+	let post = JSON.stringify(data);
+	
+	console.log(post);
+	
+	$.ajax({
+		url: "http://localhost:4000/insert",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		type: "POST",
+		contentType: "application/json",
+		data: post,
+		success: function () {
+			alert("Data Inserted");
+		},
+		error: function () {
+			alert("error");
+		},
+	});
+	event.preventDefault();
+	signInForm.style.display = "block";
+	signUpForm.style.display = "none";
+}
+
+			}
+		
+
+			function signin() {
+				
+				var email = $("#email1").val();
+			
+				var password = $("#password2").val();
+			 if(email=='')
+{
+	alert("Please fill the Email")
+}
+else if(password=='')
+{
+	alert("Please fill the Password")
+}
+else{
+
+	var data = {
+		email: email,
+		password: password,
+		
+	};
+	let post = JSON.stringify(data);
+	
+	console.log(post);
+	
+	$.ajax({
+		url: "http://localhost:4000/getdata",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		type: "POST",
+		contentType: "application/json",
+		data: post,
+		success: function (username) {
+			if(username==='')
+			{
+				alert("account not exit please register first");
+			}
+			else 
+			{
+
+				if(username==="PNC")
+	          {
+		alert("Password is incorrect!");
+	          }
+				else{
+			
+	
+				sessionStorage.setItem('username', username);
+	
+				window.location.href = 'profile.html';
+			}
+		}
+			 
+		},
+		error: function () {
+			alert("error");
+		},
+	});
+	event.preventDefault();
+}
+				
+			}
+		</script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</body>
+
+</html>
+

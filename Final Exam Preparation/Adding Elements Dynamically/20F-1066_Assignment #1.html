@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assignment #01</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+ .body
+{
+margin: 0;
+background-color: #f2f2f2;
+}
+
+.container
+{
+width: 100%;
+margin: 0 auto;
+background-color: #ecdec1;
+padding: 10px;
+box-shadow: 0 0 10px #3f3c3c;
+}
+
+.div-grand
+{
+    margin-left: 585px;
+}
+
+.records-container
+{
+width: 100%;
+margin: 0 auto;
+border: 1px solid #cccccc;
+margin-bottom: 10px;
+margin-top: 10px;
+padding: 10px;
+}
+
+#add-more, #calculate-grand-total
+{
+background-color: #14a344c1;
+padding: 8px 10px;
+border: none;
+border-radius: 3px;
+color: #fff;
+margin-top: 10px;
+}
+
+#due
+{
+background-color: #14a344c1;
+padding: 8px 10px;
+border: none;
+border-radius: 3px;
+color: #fff;
+margin-top: 10px;
+}
+
+#add-more:hover, #calculate-grand-total:hover 
+{
+background-color: #006752;
+cursor: pointer;
+}
+
+.delete-record 
+{
+background-color: #c34a46;
+padding: 8px 10px;
+border: none;
+border-radius: 3px;
+color: #fff;
+margin-left: 10px;
+}
+
+.delete-record:hover 
+{
+background-color: #c9302c;
+cursor: pointer;
+}
+
+.submit
+{
+margin-left: 350px;
+}
+.submitbtn
+{
+background-color: #14a344c1;
+padding: 8px 10px;
+border: none;
+border-radius: 3px;
+color: #fff;
+margin-top: 10px;
+}
+
+.submitbtn:hover
+{
+background-color: #006752;
+cursor: pointer;
+}
+
+input[type="text"], input[type="number"] 
+{
+width: 150px;
+border-radius: 3px;
+stroke: #c34a46;
+margin-right: 10px;
+}
+
+</style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>&nbsp;Dynamic Invoice</h1>
+        <div class="tags">
+            <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Product Name  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Quantity &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Discount&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Price</label>
+        </div>
+        <div class="records-container">
+            <div class="record-row" data-row="1">
+                <span>Sr No.</span>
+                <input type="checkbox" class="form-control" id="tick_1" data-row="1" />
+                <input type="text" class="form-control"  id="name_1" data-row="1" />
+                <input type="number" class="form-control"  id="quantity_1" data-row="1" />
+                <input type="number" class="form-control"  id="discount_1" data-row="1" />
+                <input type="number" class="form-control"  id="price_1" data-row="1" />
+                <span class="record-total" data-row="1">Price: </span>
+            </div>
+        </div>
+        <button type="button" id="add-more">+Add More</button>
+        <button type="button" class="delete-record" data-row="1">-Delete</button>
+        <div class="div-grand">
+            <button type="button" id="calculate-grand-total">Sub Total</button>
+            <span class="grand-total"> </span><br><br><br>
+            <label>Amount Paid</label>
+            <input type="number" class="form-control" id="paid_1" data-row="1" /><br><br>
+            <span class="amountdue">Due: </span><br><br><br>
+        </div>
+        <div class="submit">
+            <button type="button" class="submitbtn" onclick="submit()">Submit</button>
+        </div> 
+    </div>
+
+<script>
+    $(document).ready(function() {
+        var increment = 1;
+        var recordHTML = '';
+        $('#add-more').click(function() {
+            increment++;
+            recordHTML = `<div class="record-row" data-row="${increment}">
+                            <span>Sr No. ${increment}</span>
+                            <input type="checkbox" class="form-control" id="tick_${increment}" data-row="${increment}" />
+                            <input type="text" class="form-control" id="name_${increment}" data-row="${increment}" />
+                            <input type="number" class="form-control" id="quantity_${increment}" data-row="${increment}" />
+                            <input type="number" class="form-control" id="discount_${increment}" data-row="${increment}" />
+                            <input type="number" class="form-control" id="price_${increment}" data-row="${increment}" />
+                            <span class="record-total" data-row="${increment}">Total Price: </span>
+    
+                        </div>`;
+            $('.records-container').append(recordHTML);
+        });
+
+        $(document).on('click', '.delete-record', function() {
+            var rowdata = $(this).attr('data-row');
+            $('.record-row[data-row="' + rowdata + '"]').remove();
+            $('#calculate-grand-total').click();
+        });
+
+        $(document).on('change', 'input[type="number"]', function() {
+            var rowdata = $(this).attr('data-row');
+            var price = $('#price_' + rowdata).val();
+            var discount = $('#discount_' + rowdata).val();
+            var quantity = $('#quantity_' + rowdata).val();
+            
+
+            if (price) {
+                price = parseInt(price);
+            } else {
+                price = 0;
+            }
+            if (discount) {
+                discount = parseInt(discount);
+            } else {
+                discount = 0;
+            }
+            if (quantity) {
+                quantity = parseInt(quantity);
+            } else {
+                quantity = 0;
+            }
+            var totalprice = price - discount;
+            if (totalprice < 0) {
+                totalprice = 0;
+            }
+            totalprice = price * quantity - (((quantity*price)*discount)/100);
+            $('.record-total[data-row="' + rowdata + '"]').html('Total: ' + totalprice);
+            $('#calculate-grand-total').click();
+        });
+
+        $(document).on('change', 'input[type="checkbox"]', function() {
+            var rowdata = $(this).attr('data-row');
+            $('.record-row[data-row="' + rowdata + '"]').remove();
+            $('#calculate-grand-total').click();
+        });
+
+        $('#calculate-grand-total').click(function() {
+            var amountpaid = $('#paid_1').val();
+            var subtotal = 0;
+            var amountdue = 0;
+            $('.record-total').each(function() {
+                var totalprice = $(this).html();
+                totalprice = parseInt(totalprice.replace('Total: ', ''));
+                subtotal += totalprice;
+                amountdue = amountpaid - subtotal;
+            });
+            $('.grand-total').html('Grand Total: ' + subtotal);
+            $(' .amountdue').html('Due '+ amountdue);
+        });
+
+    });
+
+    function submit()
+    {
+        alert("Record submitted");
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+
+        <div class="form-group">
+          <label for=""><b>Name</b></label>
+          <input type="text" id="name" name="name" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for=""><b>Email</b></label>
+          <input type="email" id="email" name="email" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for=""><b>Password</b></label>
+          <input type="password" id="password" name="password" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for=""><b>ID</b></label>
+          <input type="id" id="id2" name="id2" class="form-control" />
+        </div>
+        <input name="insert" onclick="submit();" value="Insert" class="btn btn-primary"/>
+		
+		<input name="get" onclick="getdata();" value="Get" class="btn btn-primary"/> 
+    <input name="delete" onclick="deleteData();" value="delete" class="btn btn-primary"/>
+    <input name="update" onclick="updateData();" value="update" class="btn btn-primary"/>
+    </div>
+	
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+	
+<script>	
+
+	
+function submit()
+{
+  var  name = $("#name").val();
+  var  email = $("#email").val();
+  var  password = $("#password").val();
+ 
+
+    var data = {name : name, email : email, password: password};
+
+    let post = JSON.stringify(data);
+
+    console.log(post);
+
+    $.ajax({
+        url: 'http://localhost:4000/insert',
+	headers: {
+        'Content-Type':'application/json'
+    },			
+        type: 'POST',
+        contentType: 'application/json',
+        data: post,
+        success: function(){
+	
+		alert("Data Inserted");
+        },
+        error: function(){
+            alert('error occured');
+        }
+    });    
+	
+}
+	
+
+function getdata() {
+    var id = $("#id2").val();
+    $.ajax({
+        url: 'http://localhost:4000/getdata?id=' + id,
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        type: 'GET',
+        contentType: 'application/json',
+        success: function (result) {
+            result.forEach(function (obj) {
+                console.log(obj.name);
+                $("#name").val(obj.name);
+                $("#email").val(obj.email);
+                $("#password").val(obj.password);
+            });
+        },
+        error: function () {
+            alert('error');
+        }
+    });
+}
+
+
+function deleteData() {
+  var id = $("#id2").val();
+
+  var data = { id: id };
+  let post = JSON.stringify(data);
+
+  $.ajax({
+    url: "http://localhost:4000/delete",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    type: "DELETE",
+    contentType: "application/json",
+    data: post,
+    success: function () {
+      alert("Data Deleted");
+    },
+    error: function () {
+      alert("Error");
+    },
+  });
+}
+
+
+function updateData() {
+  getdata();
+  var id = $("#id2").val();
+  var name = $("#name").val();
+  var email = $("#email").val();
+  var password = $("#password").val();
+
+  var data = {id: id, name: name, email: email, password: password};
+  var postData = JSON.stringify(data);
+
+  $.ajax({
+    url: 'http://localhost:4000/update',
+    headers: {'Content-Type': 'application/json'},
+    type: 'POST',
+    contentType: 'application/json',
+    data: postData,
+    success: function(result) {
+      console.log(result);
+      alert("Data updated successfully");
+    },
+    error: function() {
+      alert('Error updating data');
+    }
+  });
+}
+	
+</script>	
+	
+  </body>
+</html>

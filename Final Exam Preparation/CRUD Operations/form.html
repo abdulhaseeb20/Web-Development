@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="bootstrap.css">
+    <script src="jquery.js"> </script>
+    <title>Task 3 Part 2</title>
+</head>
+
+<style>
+    .header{
+        font: bold;
+        background-color: rgb(44, 131, 252);
+        color: white;
+    }
+    .label{
+        font:bold;
+    }
+    .button{
+        width: 100px;
+        height: 40px;
+        background-color: rgb(50, 143, 255);
+        border-radius:7%;
+        margin-left: 400px;
+        color: white;
+    }
+    .form1{
+        background-color: rgb(237, 233, 233);
+    }
+</style>
+<body>
+
+    <div class="container text-left py-3">
+        <div class="row">
+            <div class="col-12">
+                <p1>Add new KUC Member</p1>
+                <h1 class="fs-2 header">Member Profile</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"> 
+        <div class="row form1">
+            <div class="col-md-6 py-5 " id="form">
+                </div>
+                <div class="mb-5">
+                    <div class="row g-3">
+                        <div class="col-md-6  " > 
+                             <label for="lastname" class="form-label label" >Member Last Name</label>
+                             <input type="test" class="form-control" id="lastname" placeholder="Enter Last Name"> </div>
+                        <div class="col-md-6">
+                             <label for="firstname" class="form-label">Member First Name</label>
+                            <input type="text" class="form-control" id="firstname" placeholder="Enter First Name"> </div>
+                        <div class="col-md-6"> 
+                            <label for="address" class="form-label">Member Address</label> 
+                            <input type="text" class="form-control" id="address" placeholder="Enter Address"> </div>
+                                
+                        <div class="col-md-6"> 
+                            <label for="email" class="form-label">Member Email</label> 
+                            <input type="email" class="form-control" id="email" placeholder="Enter Email"> </div>
+                        
+                        <div class="col-md-6"> 
+                            <label for="loanno" class="form-label">Loan #</label> 
+                            <input type="number" class="form-control" id="loanno" placeholder="Enter Loan"> </div>
+                        <div class="col-md-6"> 
+                            <label for="lender" class="form-label">Lender</label>
+                            <input type="text" class="form-control" id="lender" placeholder="Enter Lender"> </div>
+                            <div class="col-md-6"> 
+                                <label for="loanamount" class="form-label">Loan Amount</label> 
+                                <input type="number" class="form-control" id="loanamount" placeholder="Enter Loan Amount"> </div>
+                            <div class="col-md-6"> 
+                                <label for="interestrate" class="form-label">Interest Rate</label>
+                                <input type="number" class="form-control" id="interestrate" placeholder="Enter Interest Rate"> </div>
+                                <div class="col-md-6"> 
+                                    <label for="monthlypay" class="form-label">Monthly Principal and Interst Payment</label> 
+                                    <input type="number" class="form-control" id="monthlypay" placeholder="Enter Monthly Payment"> </div>
+                                <div class="col-md-6"> 
+                                    <label for="monthlytax" class="form-label">Monthly Impounded Taxes</label>
+                                    <input type="number" class="form-control" id="monthlytax" placeholder="Enter Monthly Taxes"> </div>
+                                    
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-4"><br>
+                    <input name="form" onclick="SubmitForm();" value="Submit" class="btn btn-primary btn-block"/>
+                </div>   
+            </div>      
+        </div>
+    </div>
+    
+</body>
+
+<script>
+    function SubmitForm()
+    {
+        var  lastname = $("#lastname").val();
+        var  firstname = $("#firstname").val();
+        var address = $('#address').val();
+        var  email = $("#email").val();
+        var  loanno = $("#loanno").val();
+        var  lender = $("#lender").val();
+        var  loanamount = $("#loanamount").val();
+        var  interestrate = $("#interestrate").val();
+        var  monthlypay = $("#monthlypay").val();
+        var  monthlytax = $("#monthlytax").val();
+
+
+    var data = {lastname : lastname, firstname : firstname, address: address, email :email, loanno:loanno, lender:lender, loanamount:loanamount, interestrate:interestrate, monthlypay :monthlypay,monthlytax:monthlytax  };
+
+    let post = JSON.stringify(data);
+
+    console.log(post);
+
+    $.ajax({
+        url: 'http://localhost:4000/form',
+	headers: {
+        'Content-Type':'application/json'
+    },			
+        type: 'POST',
+        contentType: 'application/json',
+        data: post,
+        success: function(){
+	
+		alert("Data Inserted");
+        },
+        error: function(){
+            alert('error occured');
+        }
+    });    
+    }
+</script>
+
+</html>
