@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Card Example</title>
+  <style>
+    .image-card {
+      border-radius: 5px;
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .product-image {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    .product-name {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
+    .product-price,
+    .product-quantity {
+      margin-top: 5px;
+    }
+
+    .image-card:hover {
+      background-color: #f0f0f0;
+    }
+
+    .image-card:hover .product-name {
+      color: orange;
+    }
+
+    .image-card:hover .product-price,
+    .image-card:hover .product-quantity {
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <div id="imageCardContainer" style="width: max-content;"></div>
+
+  <script>
+    // Create the outer div element
+    const outerDiv = document.createElement('div');
+    outerDiv.className = 'image-card';
+
+    // Create the image element
+    const image = document.createElement('img');
+    image.src = './uploads/1686075770832-Hospital.jpg';
+    image.alt = 'Product Image';
+    image.className = 'product-image';
+
+    // Create the h4 element for product name
+    const productName = document.createElement('h4');
+    productName.className = 'product-name';
+    productName.textContent = 'Product Name';
+
+    // Create the p element for product price
+    const productPrice = document.createElement('p');
+    productPrice.className = 'product-price';
+    productPrice.textContent = 'Price: $9.99';
+
+    // Create the p element for product quantity
+    const productQuantity = document.createElement('p');
+    productQuantity.className = 'product-quantity';
+    productQuantity.textContent = 'Quantity: 10';
+
+    // Append the elements to the outer div
+    outerDiv.appendChild(image);
+    outerDiv.appendChild(productName);
+    outerDiv.appendChild(productPrice);
+    outerDiv.appendChild(productQuantity);
+
+    // Append the outer div to the container
+    const container = document.getElementById('imageCardContainer');
+    container.appendChild(outerDiv);
+  </script>
+</body>
+</html>

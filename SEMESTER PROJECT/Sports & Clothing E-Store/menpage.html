@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Men | Sports & Clothing</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <style>
+    body {
+      background-color: #f8f8f8;
+      font-family: "Book Antiqua", serif;
+    }
+    .navbar {
+      background-color: #000;
+    }
+
+    .navbar-brand {
+      color: orange;
+    }
+
+    .navbar-icons {
+      color: #fff;
+      font-size: 20px;
+    }
+
+    .sidebar {
+      background-color: #f8f9fa;
+      height: 100vh;
+      width: 200px;
+      position: fixed;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .sidebar ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .sidebar li {
+      padding: 10px;
+    }
+
+    .sidebar a {
+      text-decoration: none;
+      color: #000;
+      /* font-weight: bold; Apply bold font weight */
+    }
+
+    .sidebar a:hover {
+      color: orange;
+    }
+
+    .content {
+      margin-left: 200px;
+      padding: 20px;
+    }
+    .image-card-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      justify-items: center;
+    }
+    .image-card {
+      border-radius: 5px;
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .product-image {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    .product-name {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
+    .product-price,
+    .product-quantity {
+      margin-top: 5px;
+    }
+
+    .image-card:hover {
+      background-color: #f0f0f0;
+    }
+
+    .image-card:hover .product-name {
+      color: orange;
+    }
+
+    .image-card:hover .product-price,
+    .image-card:hover .product-quantity {
+      color: green;
+    }
+    .btn-primary {
+  background-color: black;
+  color: #fff;
+  transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: lightblue;
+  color: #000;
+}
+
+.btn-warning {
+  background-color: black;
+  color: #fff;
+  transition: background-color 0.3s;
+}
+
+.btn-warning:hover {
+  background-color: orange;
+  color: #000;
+}
+
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="home.html" style="color: orange;">Sports & Clothing</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="home.html">Home</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="menpage.html">Men</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="womenpage.html">Women</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="kidspage.html">Kids</a>
+          </li>
+        </ul>
+        <form class="form-inline">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search">
+            <div class="input-group-append">
+              <button class="btn btn-secondary" type="button">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="map.html"><i class="fas fa-map-marker-alt navbar-icons" style="color: #fff;"></i></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.html"><i class="fas fa-user navbar-icons" style="color: #fff;"></i></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><i class="fas fa-shopping-cart navbar-icons" style="color: #fff;"></i></a>
+            </li>
+          </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="sidebar">
+    <ul>
+      <li>
+        <a style="font-weight: bold;" href="sports.html">Sports</a>
+        <ul>
+          <li><a href="cricket.html">Cricket</a></li>
+          <li><a href="football.html">Football</a></li>
+          <li><a href="#">Hockey</a></li>
+        </ul>
+      </li>
+      <li>
+        <a style="font-weight: bold;" href="#">Clothes</a>
+        <ul>
+          <li><a href="#">T-shirts</a></li>
+          <li><a href="#">Trousers</a></li>
+          <li><a href="#">Jackets</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="content">
+    <h1>Men's Category</h1>
+
+    <div class="image-card-container" id="image-card-container">
+      <!-- Image cards will be dynamically added here -->
+    </div>
+    <!-- Add your content here -->
+  </div>
+
+  <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> -->
+  <script>
+
+  $(document).ready(function() {
+  $.ajax({
+    type: 'GET',
+    url: 'http://localhost:4000/getmenproducts', // Change the URL to your server route
+    success: function(response) {
+      response.forEach(function(product) {
+        const imageSrc = "./uploads/"+product.picture;
+       
+        generateImageCard(imageSrc, product.name, product.price, product.quantity);
+      });
+    },
+    error: function(error) {
+      console.log(error);
+    }
+  });
+});
+
+
+function generateImageCard(imageSrc, productName, productPrice, productQuantity) {
+  // Create the outer div element
+  const outerDiv = document.createElement('div');
+  outerDiv.className = 'image-card';
+
+  // Create the image element
+  const image = document.createElement('img');
+  image.src = imageSrc;
+  image.alt = 'Product Image';
+  image.className = 'product-image';
+
+  // Create the h4 element for product name
+  const productNameElem = document.createElement('h4');
+  productNameElem.className = 'product-name';
+  productNameElem.textContent = productName;
+
+  // Create the p element for product price
+  const productPriceElem = document.createElement('p');
+  productPriceElem.className = 'product-price';
+  productPriceElem.textContent = 'Price: $' + productPrice;
+
+  // Create the p element for product quantity
+  const productQuantityElem = document.createElement('p');
+  productQuantityElem.className = 'product-quantity';
+  productQuantityElem.textContent = 'Quantity: ' + productQuantity;
+
+  // Create the "Add to Cart" button
+  const addToCartButton = document.createElement('button');
+  addToCartButton.className = 'btn btn-primary';
+  addToCartButton.textContent = 'Add to Cart';
+
+  // Create the "Buy Now" button
+  const buyNowButton = document.createElement('button');
+  buyNowButton.className = 'btn btn-warning';
+  buyNowButton.textContent = 'Buy Now';
+
+  // Append the elements to the outer div
+  outerDiv.appendChild(image);
+  outerDiv.appendChild(productNameElem);
+  outerDiv.appendChild(productPriceElem);
+  outerDiv.appendChild(productQuantityElem);
+  outerDiv.appendChild(addToCartButton);
+  outerDiv.appendChild(buyNowButton);
+
+  // Append the outer div to the container
+  const container = document.getElementById('image-card-container');
+  container.appendChild(outerDiv);
+}
+
+
+  </script>
+
+</body>
+</html>

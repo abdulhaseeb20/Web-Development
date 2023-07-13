@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sports & Clothing Login</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <style>
+    body {
+      background-color: #f8f8f8;
+      font-family: "Book Antiqua", serif;
+    }
+
+    .navbar {
+      background-color: #000;
+    }
+
+    .navbar-brand {
+      color: orange;
+    }
+
+    .navbar-icons {
+      color: #fff;
+      font-size: 20px;
+    }
+
+    .form-container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+
+    .form-container h3 {
+      margin-bottom: 20px;
+    }
+
+    .form-container .form-group label {
+      font-weight: bold;
+    }
+
+    .form-container a.btn.btn-warning {
+  background-color: #000;
+  color: #fff;
+  transition: background-color 0.3s;
+}
+
+.form-container a.btn.btn-warning:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+  </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+          <a class="navbar-brand" href="home.html" style="color: orange;">Sports & Clothing</a>
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="home.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="menpage.html">Men</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="womenpage.html">Women</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="kidspage.html">Kids</a>
+            </li>
+          </ul>
+          <form class="form-inline">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search">
+              <div class="input-group-append">
+                <button class="btn btn-secondary" type="button">
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="map.html"><i class="fas fa-map-marker-alt navbar-icons" style="color: #fff;"></i></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.html"><i class="fas fa-user navbar-icons" style="color: orange;"></i></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><i class="fas fa-shopping-cart navbar-icons" style="color: #fff;"></i></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-container">
+          <form>
+            <h3>Customer Login</h3>
+            <div class="form-group">
+              <label for="customer-login-email">Email</label>
+              <input type="email" class="form-control" id="customeremail" required>
+            </div>
+            <div class="form-group">
+              <label for="customer-login-password">Password</label>
+              <input type="password" class="form-control" id="customerpassword" required>
+            </div>
+            <a onclick="loginAsCustomer();" type="submit" class="btn btn-warning">Login as Customer</a>
+          </form>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-container">
+          <form>
+            <h3>Store Login</h3>
+            <div class="form-group">
+              <label for="store-login-email">Email</label>
+              <input type="email" class="form-control" id="storeemail" required>
+            </div>
+            <div class="form-group">
+              <label for="store-login-password">Password</label>
+              <input type="password" class="form-control" id="storepassword" required>
+            </div>
+            <div class="form-group">
+              <label for="store-login-otp">OTP</label>
+              <input type="text" class="form-control" id="storeotp" required>
+              <button style="margin-top: 10px;"type="button" class="btn btn-warning btn-sm" onclick="generateAndSendOTP()">Generate</button>
+
+            </div>
+            <a onclick="loginAsStore()" type="submit" class="btn btn-warning">Login as Store</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+<script>
+  function loginAsCustomer() {
+    var email = $("#customeremail").val();
+    var password = $("#customerpassword").val();
+    $.ajax({
+        url: 'http://localhost:4000/getcustomerdata?customeremail=' + email + '&customerpassword=' + password,
+        type: 'GET',
+        success: function(result){
+          alert('success');
+          window.location.href = 'menpage.html';
+          },
+        error: function () {
+            alert('Error');
+        }
+    });
+  }
+
+// Generate a random 6-digit OTP
+function generateOTP() {
+  var otp = Math.floor(100000 + Math.random() * 900000).toString();
+  $('#storeotp').val(otp);
+}
+
+// Generate and send OTP
+function generateAndSendOTP() {
+  var email = $('#storeemail').val();
+
+  $.ajax({
+    url: 'http://localhost:4000/sendotp',
+    type: 'POST',
+    data: { email: email },
+    success: function(response) {
+      // Handle success, e.g., display a message to the user
+      alert('OTP generated and sent successfully!');
+    },
+    error: function(xhr, status, error) {
+      // Handle error, e.g., display an error message
+      alert('Failed to generate and send OTP. Please try again.');
+    }
+  });
+}
+
+// Login as Store
+function loginAsStore() {
+  var email = $('#storeemail').val();
+  var password = $('#storepassword').val();
+  var otp = $('#storeotp').val();
+
+  $.ajax({
+    url: 'http://localhost:4000/getstoredata?storeemail=' + email + '&storepassword=' + password  + '&storeotp=' + otp,
+    type: 'GET',
+    success: function(response) {
+      // Handle success, e.g., redirect to a dashboard or display a success message
+      alert('Login successful!');
+      window.location.href = 'admin.html';
+    },
+    error: function(xhr, status, error) {
+      // Handle error, e.g., display an error message
+      alert('Login failed. Please check your credentials and OTP.');
+    }
+  });
+}
+
+//      url: 'http://localhost:4000/getstoredata?storeemail=' + email + '&storepassword=' + password + '&storeotp=' + otp,
+
+  /*function loginAsStore() {
+    var email = $("#storeemail").val();
+    var password = $("#storepassword").val();
+    $.ajax({
+        url: 'http://localhost:4000/getstoredata?storeemail=' + email + '&storepassword=' + password,
+        type: 'GET',
+        success: function(result){
+          alert('success');
+          window.location.href = 'admin.html';
+          },
+        error: function () {
+            alert('Error');
+        }
+    });
+  }*/
+  
+
+</script>
+
+

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sports & Clothing Sign Up</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body {
+      background-color: #f8f8f8;
+      font-family: "Book Antiqua", serif;
+    }
+
+    .navbar {
+      background-color: #000;
+    }
+
+    .navbar-brand {
+      color: orange;
+      font-weight: bold;
+    }
+
+    .navbar-icons {
+      color: #fff;
+      font-size: 20px;
+    }
+
+    .form-container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+
+    .form-container h3 {
+      margin-bottom: 20px;
+    }
+
+    .form-container .form-group label {
+      font-weight: bold;
+    }
+
+    .form-container a.btn.btn-warning {
+  background-color: #000;
+  color: #fff;
+  transition: background-color 0.3s;
+}
+
+.form-container a.btn.btn-warning:hover {
+  background-color: white;
+  color: #000;
+}
+
+  </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+          <a class="navbar-brand" href="home.html" style="color: orange;">Sports & Clothing</a>
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="home.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="menpage.html">Men</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="womenpage.html">Women</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="kidspage.html">Kids</a>
+            </li>
+          </ul>
+          <form class="form-inline">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search">
+              <div class="input-group-append">
+                <button class="btn btn-secondary" type="button">
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="map.html"><i class="fas fa-map-marker-alt navbar-icons" style="color: #fff;"></i></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.html"><i class="fas fa-user navbar-icons" style="color: #fff;"></i></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><i class="fas fa-shopping-cart navbar-icons" style="color: #fff;"></i></a>
+            </li>
+          </ul>
+        </div>
+    </nav>
+      
+
+
+
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-container">
+            <form>
+              <h3>Customer Sign Up</h3>
+              <div class="form-group">
+                <label for="customer-name">Name</label>
+                <input type="text" class="form-control" id="customername" name="customername">
+              </div>
+              <div class="form-group">
+                <label for="customer-username">Username</label>
+                <input type="text" class="form-control" id="username" name="username">
+              </div>
+              <div class="form-group">
+                <label for="customer-email">Email</label>
+                <input type="email" class="form-control" id="useremail" name="useremail">
+              </div>
+              <div class="form-group">
+                <label for="customer-password">Password</label>
+                <input type="password" class="form-control" id="userpassword" name="userpassword">
+              </div>
+              <div class="form-group">
+                <label for="customer-mobile">Mobile Number</label>
+                <input type="text" class="form-control" id="usermobileno" name="usermobileno">
+              </div>
+              <div class="form-group">
+                <label for="customer-address">Address</label>
+                <textarea class="form-control" id="useraddress" rows="3" name="useraddress"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="customer-country">Country</label>
+                <input type="text" class="form-control" id="country" name="country">
+              </div>
+              <a onclick="registerCustomer();" class="btn btn-warning">Sign Up as Customer</a>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-container">
+            <form>
+              <h3>Store Registration</h3>
+              <div class="form-group">
+                <label for="store-name">Name</label>
+                <input type="text" class="form-control" id="sname" name="sname">
+              </div>
+              <div class="form-group">
+                <label for="store-storename">Store Name</label>
+                <input type="text" class="form-control" id="storename" name="storename">
+              </div>
+              <div class="form-group">
+                <label for="store-email">Email</label>
+                <input type="email" class="form-control" id="email" name="email">
+              </div>
+              <div class="form-group">
+                <label for="store-password">Password</label>
+                <input type="password" class="form-control" id="password" name="password">
+              </div>
+              <div class="form-group">
+                <label for="store-mobile">Mobile Number</label>
+                <input type="text" class="form-control" id="mobileno" name="mobileno">
+              </div>
+              <div class="form-group">
+                <label for="store-address">Address</label>
+                <textarea class="form-control" id="address" rows="3" name="address"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="store-type">Store Type</label>
+                <input type="text" class="form-control" id="storetype" name="storetype">
+              </div>
+              <a onclick="registerStore();" class="btn btn-warning">Register Store</a>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>    
+</body>
+
+</html>
+
+<script>
+
+  function registerCustomer()
+  {
+    //alert("onclick called")
+    var name = $("#customername").val();
+    var username = $("#username").val();
+    var email = $("#useremail").val();
+    var password = $("#userpassword").val(); 
+    var mobileno = $("#usermobileno").val();
+    var address = $("#useraddress").val();
+    var country = $("#country").val();
+    var data = {customername:name, username:username, useremail:email, userpassword:password, usermobileno:mobileno, useraddress:address, country:country};
+  
+    let post = JSON.stringify(data);
+  
+      console.log(post);
+  
+      $.ajax({
+          url: 'http://localhost:4000/registercustomer',
+    headers: {
+          'Content-Type':'application/json'
+      },			
+          type: 'POST',
+          contentType: 'application/json',
+          data: post,
+          success: function(){
+    
+      alert("Data Inserted");
+      window.location.href = 'menpage.html';
+  
+          },
+          error: function(){
+              alert('error');
+          }
+      });  
+      console.log(post); 
+  
+  }
+  
+  function registerStore()
+{
+  alert("onclick called")
+  var name = $("#sname").val();
+  var storename = $("#storename").val();
+  var email = $("#email").val();
+  var password = $("#password").val(); 
+  var mobileno = $("#mobileno").val();
+  var address = $("#address").val();
+  var storetype = $("#storetype").val();
+	
+  var data = {sname:name, storename:storename, email:email, password:password, mobileno:mobileno, address:address, storetype:storetype};
+
+  let post = JSON.stringify(data);
+
+    console.log(post);
+
+    $.ajax({
+        url: 'http://localhost:4000/registerstore',
+	headers: {
+        'Content-Type':'application/json'
+    },			
+        type: 'POST',
+        contentType: 'application/json',
+        data: post,
+        success: function(){
+	
+		alert("Data Inserted");
+    window.location.href = 'admin.html';
+        },
+        error: function(){
+            alert('error');
+        }
+    });   
+    console.log(post); 
+
+
+}
+
+  </script>

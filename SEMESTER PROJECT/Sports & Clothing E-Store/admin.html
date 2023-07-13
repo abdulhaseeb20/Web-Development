@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sports & Clothing Admin Page</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body {
+      background-color: #f8f8f8;
+      font-family: "Book Antiqua", serif;
+    }
+
+    .navbar {
+      background-color: #000;
+    }
+
+    .navbar-brand {
+      color: orange;
+      font-weight: bold;
+    }
+
+    .navbar-icons {
+      color: #fff;
+      font-size: 20px;
+    }
+
+    .form-container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+
+    .form-container h3 {
+      margin-bottom: 20px;
+    }
+
+    .form-container .form-group label {
+      font-weight: bold;
+    }
+
+    .form-container button[type="submit"] {
+      background-color: #000;
+      color: #fff;
+      transition: background-color 0.3s;
+    }
+
+    .form-container button[type="submit"]:hover {
+      background-color: #333;
+    }
+
+    .table-container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    a.btn-black {
+  background-color: #000;
+  color: #fff;
+  transition: background-color 0.3s;
+}
+
+a.btn-black:hover {
+  background-color: white;
+  color: #000;
+}
+
+a.btn-outline-red {
+  color: red;
+  border-color: red;
+}
+
+a.btn-outline-blue {
+  color: blue;
+  border-color: blue;
+}
+
+a.btn-green {
+  background-color: green;
+  color: #fff;
+  transition: background-color 0.3s;
+}
+
+a.btn-green:hover {
+  background-color: darkgreen;
+}
+
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="home.html" style="color: orange;">Sports & Clothing</a>
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="home.html">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="menpage.html">Men</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="womenpage.html">Women</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="kidspage.html">Kids</a>
+          </li>
+      </ul>
+      <form class="form-inline">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search">
+          <div class="input-group-append">
+            <button class="btn btn-secondary" type="button">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="map.html"><i class="fas fa-map-marker-alt navbar-icons" style="color: #fff;"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="login.html"><i class="fas fa-user navbar-icons" style="color: #fff;"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"><i class="fas fa-shopping-cart navbar-icons" style="color: #fff;"></i></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="table-container">
+          <h3>Admin Page</h3>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Made For</th>
+                <th>Category</th>
+                <th>Type</th>
+                <th>Price ($)</th>
+                <th>Quantity</th>
+                <th>Picture</th>
+                <th>Remove</th>
+              </tr>
+            </thead>
+            <tbody class="product-table-body">
+              <!-- Table rows will be dynamically generated here -->
+            </tbody>
+          </table>
+          <a href="addproduct.html" class="btn btn-black btn-outline-success">Add New Product</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</body>
+</html>
+<script>
+ $(document).ready(function() {
+  // Make an AJAX request to retrieve the product data from the server
+  $.ajax({
+    type: 'GET',
+    url: 'http://localhost:4000/getstoreproducts', // Change the URL to your server route
+    success: function(response) {
+      response.forEach(function(product) {
+        const imageSrc = "./uploads/" + product.picture;
+
+        generateTableRow(
+          product.id,
+          product.name,
+          product.description,
+          product.madefor,
+          product.category,
+          product.type,
+          product.price,
+          product.quantity,
+          imageSrc
+        );
+      });
+      
+      // Attach event listener to the "Delete" buttons
+      $('.table').on('click', '.btn-outline-danger', function() {
+        const row = $(this).closest('tr');
+        const id = row.find('td:first').text();
+        
+        // Make an AJAX request to delete the product from the server
+        $.ajax({
+          type: 'DELETE',
+          url: 'http://localhost:4000/deleteproduct', // Change the URL to your server route
+          data: { id: id },
+          success: function(response) {
+            // Remove the row from the table on successful deletion
+            row.remove();
+          },
+          error: function(error) {
+            console.log(error);
+          }
+        });
+      });
+    },
+    error: function(error) {
+      console.log(error);
+    }
+  });
+});
+
+function generateTableRow(id, name, description, madefor, category, type, price, quantity, imageSrc) {
+  // Get the table body element
+  const tableBody = document.querySelector('.table tbody');
+
+  // Create a new table row element
+  const row = document.createElement('tr');
+
+  // Create the table data cells and populate them with data
+  const rowData = [id, name, description, madefor, category, type, price, quantity];
+  rowData.forEach(function(value) {
+    const cell = document.createElement('td');
+    cell.textContent = value;
+    row.appendChild(cell);
+  });
+
+  // Create the table data cell for the product image
+  const imageCell = document.createElement('td');
+  const image = document.createElement('img');
+  image.src = imageSrc;
+  image.alt = name;
+  image.width = 50;
+  imageCell.appendChild(image);
+  row.appendChild(imageCell);
+
+  // Create the table data cell for the delete button
+  const deleteCell = document.createElement('td');
+  const deleteButton = document.createElement('a');
+  deleteButton.className = 'btn btn-sm btn-black btn-outline-danger';
+  deleteButton.textContent = 'Delete';
+  deleteCell.appendChild(deleteButton);
+  row.appendChild(deleteCell);
+
+  // Append the table row to the table body
+  tableBody.appendChild(row);
+}
+
+
+</script>
