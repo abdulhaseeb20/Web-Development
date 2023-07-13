@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculator</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <div class="calculator">
+    <input type="text" id="result" onclick="displayResult()" readonly>
+    <div class="buttons">
+      <button onclick="add(); subtract(); multiply(); divide(); " >7</button>
+      <button onclick="add(); subtract(); multiply(); divide(); ">8</button>
+      <button onclick="add(); subtract(); multiply(); divide(); ">9</button>
+      <button onclick="add(); subtract(); multiply(); divide(); ">/</button>
+      <button onclick="add(); subtract(); multiply(); divide(); ">4</button>
+      <button onclick="add(); subtract(); multiply(); divide(); ">5</button>
+      <button onclick="add(); subtract(); multiply(); divide(); ">6</button>
+      <button onclick="add(); subtract(); multiply(); divide(); ">*</button>
+      <button onclick="add(); subtract(); multiply(); divide(); ">1</button>
+      <button onclick="add(); subtract(); multiply(); divide(); ">2</button>
+      <button onclick="add(); subtract(); multiply(); divide(); ">3</button>
+      <button onclick="add(); subtract(); multiply(); divide(); ">-</button>
+      <button onclick="add(); subtract(); multiply(); divide(); ">0</button>
+      <button onclick="add(); subtract(); multiply(); divide(); ">.</button>
+      <button onclick="add(); subtract(); multiply(); divide(); ">=</button>
+      <button onclick="add(); subtract(); multiply(); divide(); ">+</button>
+      <button onclick="add(); subtract(); multiply(); divide(); ">C</button>
+    </div>
+  </div>
+
+
+  <script>
+  document.addEventListener('keydown', (event) => {
+  var name = event.key;
+  var code = event.code;
+  document.getElementById(name).style.background="red";
+  // Alert the key name and key code on keydown
+}, false);
+
+document.addEventListener('keyup', (event) => {
+  var name = event.key;
+  var code = event.code;
+  document.getElementById(name).style.background="white";
+}, false);
+
+
+var var1 = "";
+function displayResult(txt)
+{
+var1 = var1+txt.innerHTML;
+document.getElementById("textbox").value = var1;
+}
+
+function add()
+{
+  var num1, num2;
+  var result = num1+num2;
+  return result;
+
+}
+ 
+function subtract()
+{
+  var num1, num2;
+  var result = num1-num2;
+  return result;
+}
+
+function multiply()
+{
+  var num1, num2;
+  var result = num1*num2;
+  return result;
+}
+
+function divide()
+{
+  var num1, num2;
+  var result = num1/num2;
+  return result;
+}
+  </script>
+</body>
+</html>
