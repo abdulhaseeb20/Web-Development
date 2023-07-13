@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Month Days Calculator</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Bootstrap CSS -->
+    <!-- Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi4+N" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNSliNQ" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> 
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<script>
+    function calculate(days) {
+        // Get the value of the month input field
+        var month = document.getElementById("month").value;
+
+        // Convert the month name to lowercase
+        month = month.toLowerCase();
+
+        // Initialize the number of days to 0
+        var days = 0;
+
+        // Calculate the number of days based on the month name
+        switch (month) {
+            case "jan":
+            case "january":
+            case "mar":
+            case "march":
+            case "may":
+            case "jul":
+            case "july":
+            case "aug":
+            case "august":
+            case "oct":
+            case "october":
+            case "dec":
+            case "december":
+                days = 31;
+                return days;
+                break;
+            case "apr":
+            case "april":
+            case "jun":
+            case "june":
+            case "sep":
+            case "september":
+            case "nov":
+                days=30;
+                return days;
+                break;
+        }
+    }
+    </script>
+<body>
+	<div class="container mt-5">
+		<h1 class="mb-4">Month Days Calculator</h1>
+		<form>
+			<div class="form-group">
+				<label for="month">Enter the name of the month:</label>
+				<input type="text" class="form-control" id="month" name="month">
+			</div>
+			<button type="button" class="btn btn-primary" onclick="calculate()">Calculate</button>
+		</form>
+
+		<div class="mt-4">
+			<h3>Result:</h3>
+			<div id="result"></div>
+            
+		</div>
+	</div>
+</body>
+	
+
+	
+    </html>

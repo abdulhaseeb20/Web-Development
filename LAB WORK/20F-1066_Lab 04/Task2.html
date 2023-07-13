@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    .myClass1
+    {
+        background-color: pink;
+        width: 100px;
+        height: 100px;
+    }
+    .myClass2
+    {
+        background-color: rgb(103, 199, 103);
+        width: 100px;
+        height: 100px;
+    }
+</style>
+<body>
+    <p>Click the button to make a BUTTON element with text</p>
+    <button onClick="createButton()"> Try It</button>
+
+    <script>
+        function createButton()
+        {
+            var i=0;
+            while(i < 100)
+            {
+                var btn = document.createElement("BUTTON");
+                btn.innerHTML = "CLICK ME";
+                btn.id = i;
+                if (btn.id % 2 == 0)
+                {
+                    btn.classList.add('myClass1');
+                    document.body.appendChild(btn);
+                    i++;
+                }
+                else
+                {
+                    btn.classList.add('myClass2');
+                    document.body.appendChild(btn);
+                    i++;
+                }
+                if (btn.id % 10 == 0)
+                {
+                     document.body.appendChild(document.createElement("br"));
+                }  
+            }
+        }
+    </script>
+    
+</body>
+</html>

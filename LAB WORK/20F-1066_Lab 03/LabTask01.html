@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<script src= "jquery-git.js">
+	</script>
+</head>
+
+<body>
+	<h3>
+		To download file, Click
+		on the link below.
+	</h3>
+	
+	<a id="link" href="LabTask01.html">
+		Download File
+	</a>
+	
+	<script>
+		$(document).ready(function () {
+			$("#link").click(function (e) {
+				e.preventDefault();
+				alert("File downloaded successfully!");
+			});
+		});
+	</script>
+</body>
+
+</html>

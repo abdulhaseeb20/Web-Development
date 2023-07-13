@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Multiplication Table Calculator</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container mt-5">
+		<h1 class="mb-4">Multiplication Table Calculator</h1>
+		<div class="form-group">
+			<label for="number">Enter a number:</label>
+			<input type="text" class="form-control" id="number">
+		</div>
+		<button type="button" class="btn btn-primary" onclick="calculate()">Calculate</button>
+
+		<div class="mt-4">
+			<h3>Result:</h3>
+			<div id="result"></div>
+		</div>
+	</div>
+
+	<!-- Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi4+N" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNSliNQ" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+	<script>
+		function calculate() {
+			// Get the value of the number input field
+			var number = document.getElementById("number").value;
+
+			// Convert the number to an integer
+			number = parseInt(number);
+
+			// Initialize the table string
+			var table = "";
+
+			// Generate the table
+			for (var i = 1; i <= 10; i++) {
+				table += number + " x " + i + " = " + (number * i) + "<br>";
+			}
+
+			// Set the table string as the content of the result element
+			document.getElementById("result").innerHTML = table;
+		}
+	</script>
+</body>
+</html>
